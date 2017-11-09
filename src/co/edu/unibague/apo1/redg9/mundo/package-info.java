@@ -23,8 +23,8 @@
  */
 
 /**
- * Nombre: mundo
- * Descripcion: Paquete encargado almacenar las estructuras básica para la lógica de la aplicación.
+ * Name: mundo
+ * Description: This package contents all logic structures for the app.
  * 
  * @author Luis Felipe Mendivelso Osorio
  * @since 09-11-2017

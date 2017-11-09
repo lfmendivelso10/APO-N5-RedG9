@@ -21,12 +21,75 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package co.edu.unibague.apo1.redg9.mundo;
+
+import java.util.Date;
 
 /**
- * Name: interfaz
- * Description: This package contents all graphical user interfaces for the app.
- * 
- * @author Luis Felipe Mendivelso Osorio
+ * This class was created to manage the logic required for users publications information.
+ * @author lfmendivelso
  * @since 09-11-2017
  */
-package co.edu.unibague.apo1.redg9.interfaz;
+public class Publicacion {
+	
+	public static final String PUBLICO = "Pública";
+	public static final String PRIVADO = "Privada";
+	public static final int MAX_CARACTERES = 140;
+	
+	private String mensaje;
+	private Date fecha;
+	
+	/**
+	 * @param mensaje
+	 * @param fecha
+	 */
+	public Publicacion(String mensaje) {
+		super();
+		this.mensaje = mensaje;
+		this.fecha = new Date();
+	}
+
+	/**
+	 * @return the mensaje
+	 */
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	/**
+	 * @param mensaje the mensaje to set
+	 */
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	/**
+	 * @return the fecha
+	 */
+	public Date getFecha() {
+		return fecha;
+	}
+
+	/**
+	 * @param fecha the fecha to set
+	 */
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "-------------- \n"+
+				mensaje+"\n"+
+				fecha.toString()+"\n"+
+				"-------------------";
+	}
+	
+	
+	
+	
+
+}
