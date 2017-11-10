@@ -32,7 +32,7 @@ import java.util.Date;
  */
 public class Publicacion {
 	
-	public static final String PUBLICO = "PÃºblica";
+	public static final String PUBLICO = "Pública";
 	public static final String PRIVADO = "Privada";
 	public static final int MAX_CARACTERES = 140;
 	

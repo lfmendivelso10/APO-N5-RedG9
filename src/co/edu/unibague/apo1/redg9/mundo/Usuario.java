@@ -232,7 +232,7 @@ public class Usuario {
 		return publicaciones.get(ultimo).toString();
 	}
 	
-	public String verPublicaciones() {
+	public String toString() {
 		String muro = "";
 		for(Publicacion publicacion : publicaciones) {
 			muro += publicacion.toString();
