@@ -20,8 +20,8 @@ public class Red {
 	 * @param correo es el email del nuevo usuario.
 	 * @param genero es el genero del nuevo usuario.
 	 * @param relacion es el estado actual del nuevo usuario.
-	 * @param pais es el país de procedencia del usuario.
-	 * @param telefono es el número de contacto del usuario.
+	 * @param pais es el paï¿½s de procedencia del usuario.
+	 * @param telefono es el nï¿½mero de contacto del usuario.
 	 * 
 	 * @throws no es posible agregar un nuevo usuario sin correo o nombre.
 	 */
@@ -41,7 +41,7 @@ public class Red {
 	
 	
 	/**
-	 * Retorna un usuario que tiene un correo específico.
+	 * Retorna un usuario que tiene un correo especï¿½fico.
 	 * 
 	 * @param correoBuscado es el correo del usuario deseado.
 	 * @return retorna un usuario con el correo buscado.
@@ -70,5 +70,52 @@ public class Red {
 		
 		return usuario;
 	}
+	
+	/**
+	 * Este metodo elimina de la red social a un usuario.
+	 * <b>pre:</b> La lista de usuario debe esta inicializada. 
+	 * <b>pos:</b> Se elimina un usuario de la lista global de usuarios.
+	 * 
+	 * @throws Si la lista de usuario esta vacia, el procedimiento genera error.
+	 * @param correoBuscado es el correo electronico del usuario buscado.
+	 * @return true/false si fue o no eliminado el usuario.
+	 */
+	public boolean eliminarUsuario(String correoBuscado) {
+		boolean resultado = false;
+		
+		try {
+			if(usuarios.isEmpty()) {
+				throw new Exception("No hay usuarios resultados.");
+			}
+			
+			for(int indice=0; indice< usuarios.size() && resultado==false;indice++){
+				Usuario temporal = usuarios.get(indice);
+				if(temporal.getCorreo().equals(correoBuscado)){
+					usuarios.remove(indice);
+				}
+			}
+			
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		return resultado;
+	}
+	
+	/**
+	 * Retorna una cadena de texto con todas las publicaciones de la plataforma.
+	 * <b>pre:</b> La lista de usuario debe esta inicializada. 
+	 * <b>pos:</b> Se obtiene una cadena de texto con todas las publicaciones.
+	 * 
+	 * @return una cadena de texto con todas las publicaciones
+	 */
+	public String verTodasLasPublicaciones() {
+		String muro = "";
+		for(Usuario usuario : usuarios) {
+			muro+=usuario.toString();
+		}
+		return muro;
+	}
+	
 
 }
