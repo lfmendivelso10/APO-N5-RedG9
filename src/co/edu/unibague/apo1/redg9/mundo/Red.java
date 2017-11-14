@@ -110,11 +110,11 @@ public class Red {
 	 * @return una cadena de texto con todas las publicaciones
 	 */
 	public String verTodasLasPublicaciones() {
-		String muro = "";
+		String lista = "";
 		for(Usuario usuario : usuarios) {
-			muro+=usuario.toString();
+			lista+=usuario.getNombre()+" "+usuario.getCorreo()+"\n";
 		}
-		return muro;
+		return lista;
 	}
 	
 
