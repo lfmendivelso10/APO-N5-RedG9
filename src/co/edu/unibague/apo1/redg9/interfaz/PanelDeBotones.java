@@ -34,9 +34,6 @@ public class PanelDeBotones extends JPanel{
 		eliminarUsuario = new JButton("Eliminar Usuario");
 		this.add(eliminarUsuario);
 		
-		
-		
-		
 	}
 	
 	

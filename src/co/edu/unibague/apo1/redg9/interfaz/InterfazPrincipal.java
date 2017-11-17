@@ -22,6 +22,7 @@ public class InterfazPrincipal extends JFrame{
 		this.add(publicaciones);
 		// Acomodo la ventana al contenido de los paneles.
 		this.pack();
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 	
 	public static void main(String agrs[]){
