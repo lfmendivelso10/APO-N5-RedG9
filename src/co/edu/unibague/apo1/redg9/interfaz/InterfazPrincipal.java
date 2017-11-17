@@ -3,14 +3,20 @@ package co.edu.unibague.apo1.redg9.interfaz;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 
+import co.edu.unibague.apo1.redg9.mundo.Red;
+
 public class InterfazPrincipal extends JFrame{
 	
 	private PanelDeBotones botones;
 	private PanelDePublicaciones publicaciones;
+	private Red redSocial;
 	
 	public InterfazPrincipal(){
+		
+		redSocial = new Red();
+		
 		// Inicializo los paneles
-		botones = new PanelDeBotones();
+		botones = new PanelDeBotones(redSocial);
 		publicaciones = new PanelDePublicaciones();
 		
 		// Asignar el Layout
@@ -27,6 +33,7 @@ public class InterfazPrincipal extends JFrame{
 	
 	public static void main(String agrs[]){
 		new InterfazPrincipal().setVisible(true);
+		
 	}
 	
 }
