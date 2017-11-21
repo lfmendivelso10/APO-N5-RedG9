@@ -10,7 +10,7 @@ public class InterfazCrearUsuario extends JFrame{
 	
 	
 	public InterfazCrearUsuario(Red redSocial){
-		panel = new PanelCrearUsuario(redSocial);
+		panel = new PanelCrearUsuario(redSocial,this);
 		this.add(panel);
 		this.pack();
 	}
