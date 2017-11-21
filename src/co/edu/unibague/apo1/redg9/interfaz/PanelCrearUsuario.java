@@ -82,18 +82,25 @@ public class PanelCrearUsuario extends JPanel implements ActionListener{
 		this.add(etiquetaRelacion);
 		//campoRelacion = new JTextField();
 		//this.add(campoRelacion);
-		String[] relaciones = { Usuario.ESTADO_RELACION_SOLTERO, Usuario.ESTADO_RELACION_CASADO, Usuario.ESTADO_RELACION_VIUDO, Usuario.ESTADO_RELACION_FOREVER, Usuario.ESTADO_RELACION_FRIENDZONE, Usuario.ESTADO_RELACION_NOVIAZGO };
+		String[] relaciones = { 
+				Usuario.ESTADO_RELACION_SOLTERO, 
+				Usuario.ESTADO_RELACION_CASADO, 
+				Usuario.ESTADO_RELACION_VIUDO, 
+				Usuario.ESTADO_RELACION_FOREVER, 
+				Usuario.ESTADO_RELACION_FRIENDZONE, 
+				Usuario.ESTADO_RELACION_NOVIAZGO 
+				};
 		selectorRelacion = new JComboBox<>(relaciones);
 		this.add(selectorRelacion);
 		
 		// Botonos
 		botonCrear = new JButton("Crear");
-		botonCrear.setActionCommand("Crear");
+		botonCrear.setActionCommand("Alfa");
 		botonCrear.addActionListener(this);
 		this.add(botonCrear);
 				
 		botonSalir = new JButton("Salir");
-		botonSalir.setActionCommand("Salir");
+		botonSalir.setActionCommand("Beta");
 		botonSalir.addActionListener(this);
 		
 		this.add(botonSalir);
@@ -108,10 +115,30 @@ public class PanelCrearUsuario extends JPanel implements ActionListener{
 		String telefono = campoTelefono.getText();
 		String relacion = (String)selectorRelacion.getSelectedItem();
 		String genero = (String)selectorGenero.getSelectedItem();
+		
 		try {
+			
+			if(
+					nombre.equals("") || 
+					correo.equals("") || 
+					pais.equals("") || 
+					telefono.equals("") || 
+					relacion.equals("") || 
+					genero.equals("")){
+				
+				throw new Exception("No estan todos los campos");
+			}
+			
 			redSocial.agregarUsuario(nombre, correo, genero.charAt(0), relacion, pais, telefono);
-			JOptionPane.showMessageDialog(null, "Se ha podido agregar el usuario.","Mensaje de Confirmacion",JOptionPane.INFORMATION_MESSAGE);
+			
+			JOptionPane.showMessageDialog(
+					null, 
+					"Se ha podido agregar el usuario.",
+					"Mensaje de Confirmacion",
+					JOptionPane.INFORMATION_MESSAGE);
+			
 			ventana.dispose();
+			
 		}catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "No se ha podido agregar el usuario.","Mensaje de Error",JOptionPane.ERROR_MESSAGE);
 		}
@@ -123,12 +150,11 @@ public class PanelCrearUsuario extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent evento) {
 		 
 		if(evento.getActionCommand().equals(botonCrear.getActionCommand())){
-			System.out.println("Crear usuario");
 			agregarNuevoUsuario();
 		}
-		else{
-			ventana.dispose();
-			System.out.println("Salir");
+		if(evento.getActionCommand().equals(botonSalir.getActionCommand())){
+			//ventana.dispose();
+			
 		}
 	}
 	
